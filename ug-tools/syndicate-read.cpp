@@ -112,7 +112,7 @@ int main( int argc, char** argv ) {
       nr = 0;
       num_read = 0;
       while( num_read < len ) {
-          nr = UG_read( ug, buf, BUF_LEN, fh );
+          nr = UG_read( ug, buf, std::min(len,(uint64_t)BUF_LEN), fh );
           if( nr < 0 ) {
     
              fprintf(stderr, "%s: read: %s\n", path, strerror(-nr));
