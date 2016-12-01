@@ -52,7 +52,7 @@ int main( int argc, char** argv ) {
    }
    
    // setup...
-   ug = UG_init( argc, argv, opts.anonymous );
+   ug = UG_init( argc, argv );
    if( ug == NULL ) {
       
       SG_error("%s", "UG_init failed\n" );

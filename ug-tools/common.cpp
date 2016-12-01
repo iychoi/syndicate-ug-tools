@@ -51,12 +51,11 @@ static int shift_args( int argc, char** argv, int index ) {
 int parse_args( int argc, char** argv, struct tool_opts* opts ) {
     
    static struct option tool_options[] = {
-      {"anonymous",       no_argument,   0, 'A'},
       {"benchmark",       no_argument,   0, 'B'},
       {0, 0, 0, 0}
    };
 
-   char const* optstr = "AB";
+   char const* optstr = "B";
    int c = 0;
    int opt_index = 0;
    
@@ -80,12 +79,6 @@ int parse_args( int argc, char** argv, struct tool_opts* opts ) {
        }
        
        switch( c ) {
-           
-           case 'A': {
-               opts->anonymous = true;
-               argc = shift_args( argc, argv, optind - 1 );
-               break;
-           }
            
            case 'B': {
                opts->benchmark = true;
@@ -111,6 +104,6 @@ int parse_args( int argc, char** argv, struct tool_opts* opts ) {
 // usage 
 int usage( char const* progname, char const* args ) {
     
-    printf("Usage: %s [syndicate arguments] [-A|--anonymous] [-B|--benchmark] %s\n", progname, args);
+    printf("Usage: %s [syndicate arguments] [-B|--benchmark] %s\n", progname, args);
     return 0;
 }
